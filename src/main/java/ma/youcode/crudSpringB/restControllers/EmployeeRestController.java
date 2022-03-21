@@ -26,11 +26,11 @@ public class EmployeeRestController {
 
     // add mapping for GET /employees/{employeeId}
     @GetMapping("/employees/{employeeId}")
-    public Employee readOneEmployee(@PathVariable Long idEmployee) {
+    public Employee readOneEmployee(@PathVariable Long employeeId) {
         // alt + enter
-        Employee employee = employeeService.readOneEmployee(idEmployee);
+        Employee employee = employeeService.readOneEmployee(employeeId);
         if (employee == null) {
-            throw new RuntimeException("the employee id " + idEmployee + "is not found");
+            throw new RuntimeException("the employee id " + employeeId + "is not found");
         }
         return employee;
     }
@@ -51,9 +51,9 @@ public class EmployeeRestController {
     }
 
     @DeleteMapping("/employees/{idEmployee}")
+    // Be aware that the {employeeId} should match the @PathVariable idEmployee name !!!!
     public String deleteEmployee(@PathVariable Long idEmployee) {
         Employee employee = employeeService.readOneEmployee(idEmployee);
-        System.out.println(employee + "tooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooot");
         // throw exception if null
         if (employee == null){
             throw new RuntimeException("Employee id not found - " + idEmployee);
