@@ -1,6 +1,5 @@
 package ma.youcode.crudSpringB.restControllers;
 
-import ma.youcode.crudSpringB.dao.EmployeeDao;
 import ma.youcode.crudSpringB.entity.Employee;
 import ma.youcode.crudSpringB.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
