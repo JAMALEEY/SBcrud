@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface EmployeeDao {
     public List<Employee> findAll();
-    public void createEmployee(Employee employee);
-    public Employee readOneEmployee(double idEmployee);
-    public void deleteEmployee(double idEmployee);
+    public void saveEmployee(Employee employee);
+    public Employee readOneEmployee(Long idEmployee);
+    public void deleteEmployee(Long idEmployee);
 
 
 }

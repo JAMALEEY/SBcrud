@@ -26,7 +26,7 @@ public class EmployeeRestController {
 
     // add mapping for GET /employees/{employeeId}
     @GetMapping("/employees/{employeeId}")
-    public Employee readOneEmployee(@PathVariable double employeeId) {
+    public Employee readOneEmployee(@PathVariable Long employeeId) {
         // alt + enter
         Employee employee = employeeService.readOneEmployee(employeeId);
         if (employee == null) {
@@ -40,7 +40,26 @@ public class EmployeeRestController {
     public Employee createEmployee(@RequestBody Employee employee) {
         // what to do if we pass an id in the body ? we hard code the id to be null so that it dosent update an already existant id
         employee.setId_employee(null);
-        employeeService.createEmployee(employee);
+        employeeService.saveEmployee(employee);
         return employee;
     }
+
+    @PutMapping("/employees")
+    public Employee updateEmployee(@RequestBody Employee employee) {
+        employeeService.saveEmployee(employee);
+        return employee;
+    }
+
+    @DeleteMapping("/employees/{idEmployee}")
+    // Be aware that the {employeeId} should match the @PathVariable idEmployee name !!!!
+    public String deleteEmployee(@PathVariable Long idEmployee) {
+        Employee employee = employeeService.readOneEmployee(idEmployee);
+        // throw exception if null
+        if (employee == null){
+            throw new RuntimeException("Employee id not found - " + idEmployee);
+        }
+        employeeService.deleteEmployee(idEmployee);
+        return "Deleted employee with id - " + idEmployee;
+    }
+
 }
