@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface EmployeeService {
     public List<Employee> findAll();
-    public void createEmployee(Employee employee);
+    public void saveEmployee(Employee employee);
     public Employee readOneEmployee(double idEmployee);
     public void deleteEmployee(double idEmployee);
 

@@ -37,7 +37,7 @@ public class EmployeeDaoHibernateImpl implements EmployeeDao {
     }
 
     @Override
-    public void createEmployee(Employee employee) {
+    public void saveEmployee(Employee employee) {
         System.out.println(employee);
         //get the current hibernate session :
         Session currentSession = entityManager.unwrap(Session.class);
@@ -54,6 +54,8 @@ public class EmployeeDaoHibernateImpl implements EmployeeDao {
         // Return that one employee :
         return oneEmployee;
     }
+
+
 
     @Override
     public void deleteEmployee(double idEmployee) {

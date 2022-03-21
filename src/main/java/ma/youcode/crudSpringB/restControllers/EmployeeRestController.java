@@ -40,7 +40,13 @@ public class EmployeeRestController {
     public Employee createEmployee(@RequestBody Employee employee) {
         // what to do if we pass an id in the body ? we hard code the id to be null so that it dosent update an already existant id
         employee.setId_employee(null);
-        employeeService.createEmployee(employee);
+        employeeService.saveEmployee(employee);
+        return employee;
+    }
+
+    @PutMapping("/employees")
+    public Employee updateEmployee(@RequestBody Employee employee) {
+        employeeService.saveEmployee(employee);
         return employee;
     }
 }

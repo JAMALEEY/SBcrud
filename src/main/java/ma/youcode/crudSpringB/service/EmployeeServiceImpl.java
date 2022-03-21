@@ -30,8 +30,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Transactional
     @Override
-    public void createEmployee(Employee employee) {
-        employeeDao.createEmployee(employee);
+    public void saveEmployee(Employee employee) {
+        employeeDao.saveEmployee(employee);
     }
 
     @Transactional
@@ -39,6 +39,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee readOneEmployee(double idEmployee) {
         return employeeDao.readOneEmployee(idEmployee);
     }
+
 
     @Transactional
     @Override
