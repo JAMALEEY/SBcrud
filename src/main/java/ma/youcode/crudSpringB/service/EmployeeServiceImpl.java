@@ -36,14 +36,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Transactional
     @Override
-    public Employee readOneEmployee(double idEmployee) {
+    public Employee readOneEmployee(Long idEmployee) {
         return employeeDao.readOneEmployee(idEmployee);
     }
 
 
     @Transactional
     @Override
-    public void deleteEmployee(double idEmployee) {
+    public void deleteEmployee(Long idEmployee) {
         employeeDao.deleteEmployee(idEmployee);
     }
 }

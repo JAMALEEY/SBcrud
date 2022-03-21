@@ -46,7 +46,7 @@ public class EmployeeDaoHibernateImpl implements EmployeeDao {
     }
 
     @Override
-    public Employee readOneEmployee(double idEmployee) {
+    public Employee readOneEmployee(Long idEmployee) {
         // get the current hibernate session :
         Session currentSession = entityManager.unwrap(Session.class);
         // get the employee
@@ -58,7 +58,7 @@ public class EmployeeDaoHibernateImpl implements EmployeeDao {
 
 
     @Override
-    public void deleteEmployee(double idEmployee) {
+    public void deleteEmployee(Long idEmployee) {
     // get the current hibernate session :
         Session currenSession = entityManager.unwrap(Session.class);
         // delete object with the given primary key :
